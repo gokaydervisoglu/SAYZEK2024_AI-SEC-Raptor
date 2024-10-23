@@ -3,7 +3,7 @@ import os
 import torch
 import pathlib
 import cv2
-from yolov5 import YOLOv5
+import yolov5
 
 # pathlib.PosixPath hatasından kaçınmak için, Windows yolunu kullanacak şekilde ayarlama yapıyoruz
 temp = pathlib.PosixPath
@@ -18,14 +18,14 @@ if not os.path.exists(output_images_path):
     os.makedirs(output_images_path)
 
 # Görüntü dosya adları ile ID'lerin eşleşmelerini içeren JSON dosyasını yükleme
-with open('../config/image_file_name_to_image_id.json', 'r') as f: 
+with open('src/config/image_file_name_to_image_id.json', 'r') as f: 
     image_file_name_to_image_id = json.load(f)
 
 # YOLOv5 modellerini yükle (farklı sınıflar için eğitimli modeller)
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='../models/bina.pt')  # Bina modeli
-model1 = torch.hub.load('ultralytics/yolov5', 'custom', path='../models/yol_kesisimi.pt')  # Yol kesişimi modeli
-model2 = torch.hub.load('ultralytics/yolov5', 'custom', path='../models/halisaha.pt')  # Halısaha modeli
-model3 = torch.hub.load('ultralytics/yolov5', 'custom', path='../models/silo.pt')  # Silo modeli
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='src/models/bina.pt')  # Bina modeli
+model1 = torch.hub.load('ultralytics/yolov5', 'custom', path='src/models/yol_kesisimi.pt')  # Yol kesişimi modeli
+model2 = torch.hub.load('ultralytics/yolov5', 'custom', path='src/models/halisaha.pt')  # Halısaha modeli
+model3 = torch.hub.load('ultralytics/yolov5', 'custom', path='src/models/silo.pt')  # Silo modeli
 
 # Tahmin sonuçlarını tutacak boş bir liste
 results = []
