@@ -4,14 +4,16 @@ import torch
 import pathlib
 import cv2
 import yolov5
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 # pathlib.PosixPath hatasından kaçınmak için, Windows yolunu kullanacak şekilde ayarlama yapıyoruz
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 
 # Test ve çıktı görüntülerinin bulunduğu klasör yolları
-test_images_path = '../data/test-images'  # Test görüntülerinin olduğu klasör
-output_images_path = '../output/output_images'  # Tahmin sonuçlarının kaydedileceği klasör
+test_images_path = 'data/test-images'  # Test görüntülerinin olduğu klasör
+output_images_path = 'output/output_images'  # Tahmin sonuçlarının kaydedileceği klasör
 
 # Eğer çıktı klasörü mevcut değilse oluştur
 if not os.path.exists(output_images_path):
@@ -87,7 +89,7 @@ for img_name in os.listdir(test_images_path):
         cv2.imwrite(output_image_path, img)
 
 # Sonuçları bir JSON dosyasına kaydet
-with open('../output/AI-SEC-Raptor.json', 'w') as f:
+with open('output/AI-SEC-Raptor.json', 'w') as f:
     json.dump(results, f)
 
 print("Inference işlemi tamamlandi.")
