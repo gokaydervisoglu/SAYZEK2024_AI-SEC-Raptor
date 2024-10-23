@@ -2,7 +2,7 @@
 # Usage: pip install -r requirements.txt
 
 # Python versiyonu
-python>=3.8  # Python sürümü minimum 3.8 olmalıdır
+# python>=3.8  # Python sürümü minimum 3.8 olmalıdır
 
 # CUDA ve GPU Gereksinimleri --------------------------------------------------
 # CUDA: 11.1 veya daha üstü (gerekiyorsa)

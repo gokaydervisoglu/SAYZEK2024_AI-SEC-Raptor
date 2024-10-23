@@ -3,7 +3,6 @@ import os
 import torch
 import pathlib
 import cv2
-import yolov5
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -12,7 +11,7 @@ temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 
 # Test ve çıktı görüntülerinin bulunduğu klasör yolları
-test_images_path = 'data/test-images'  # Test görüntülerinin olduğu klasör
+test_images_path = 'data/test/images'  # Test görüntülerinin olduğu klasör
 output_images_path = 'output/output_images'  # Tahmin sonuçlarının kaydedileceği klasör
 
 # Eğer çıktı klasörü mevcut değilse oluştur

@@ -67,12 +67,12 @@ Eğer NVIDIA GPU kullanıyorsanız, CUDA desteğini etkinleştirmeniz gerekmekte
 Model eğitimi için kullanılacak veri setini config/ klasörü içerisinde yer alan config/data.yaml dosyasında tanımlamalısınız. Bu dosya, veri yollarını ve sınıf bilgilerini içerir. Aşağıda, örnek bir config/data.yaml dosyası gösterilmektedir:
 
 ```yaml
-train: ../datasets/train/images/    # Eğitim verilerinin yolu
-val: ../datasets/val/images/        # Doğrulama verilerinin yolu
-test: ../datasets/test/images/      # Test verilerinin yolu (opsiyonel)
+train: ../../dataset/train/images/    # Eğitim verilerinin yolu
+val: ../../dataset/val/images/        # Doğrulama verilerinin yolu
+test: ../../dataset/test/images/      # Test verilerinin yolu (opsiyonel)
 
 nc: 4                              # Toplam sınıf sayısı (Bina, Yol Kesişimi, Halısaha, Silo)
-names: ['Bina', 'Yol Kesişimi', 'Halısaha', 'Silo']  # Sınıf isimleri
+names: ['Bina', 'Yol Kesisimi', 'Halisaha', 'Silo']  # Sınıf isimleri
 
 ```
 
@@ -82,7 +82,7 @@ names: ['Bina', 'Yol Kesişimi', 'Halısaha', 'Silo']  # Sınıf isimleri
 YOLOv5 modeli ile model eğitimi yapmak için **src/train.py** dosyasını kullanabilirsiniz. Aşağıdaki komut ile eğitimi başlatabilirsiniz:
 
 ```bash
-python src/train.py --weights ../models/yolov5s.pt --data ../config/data.yaml --epochs 300 --batch-size 16 --img-size 640 --lr 0.01 --patience 60
+python src/yolov5/train.py --weights src/yolov5/yolov5s.pt --data src/config/data.yaml --epochs 300 --batch-size 16 --img-size 640 --lr 0.01 --patience 60
 
 ```
 

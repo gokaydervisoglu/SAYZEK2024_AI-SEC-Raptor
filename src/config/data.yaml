@@ -1,0 +1,7 @@
+train: ../../dataset/train/images    # Eğitim verilerinin yolu
+val: ../../dataset/val/images        # Doğrulama verilerinin yolu
+test: ../../dataset/test/images      # Test verilerinin yolu (opsiyonel)
+
+nc: 4                              # Toplam sınıf sayısı (Bina, Yol Kesişimi, Halısaha, Silo)
+names: ['Bina', 'Yol Kesisimi', 'Halisaha', 'Silo']  # Sınıf isimleri
+
